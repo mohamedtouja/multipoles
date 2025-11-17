@@ -1,13 +1,11 @@
 'use client';
 
-import { use } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useBlogPost } from '@/hooks/use-api';
 
-export default function BlogPostClient({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params);
+export default function BlogPostClient({ slug }: { slug: string }) {
   const { data: post, loading, error } = useBlogPost(slug, 'fr');
 
   if (loading) {
